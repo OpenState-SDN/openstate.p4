@@ -1,4 +1,4 @@
-python ../../cli/pd_cli.py -p portknocking -i p4_pd_rpc.portknocking -s $PWD/of-tests/pd_thrift:$PWD/../../submodules/oft-infra -m "set_default_action lookup lookup_state_table" -c localhost:22222
+python ../../cli/pd_cli.py -p portknocking -i p4_pd_rpc.portknocking -s $PWD/of-tests/pd_thrift:$PWD/../../submodules/oft-infra -m "set_default_action state_lookup lookup_state_table" -c localhost:22222
 python ../../cli/pd_cli.py -p portknocking -i p4_pd_rpc.portknocking -s $PWD/of-tests/pd_thrift:$PWD/../../submodules/oft-infra -m "set_default_action hard_to_expired set_hard_rb_state" -c localhost:22222
 python ../../cli/pd_cli.py -p portknocking -i p4_pd_rpc.portknocking -s $PWD/of-tests/pd_thrift:$PWD/../../submodules/oft-infra -m "set_default_action idle_to_expired set_idle_rb_state" -c localhost:22222
 python ../../cli/pd_cli.py -p portknocking -i p4_pd_rpc.portknocking -s $PWD/of-tests/pd_thrift:$PWD/../../submodules/oft-infra -m "set_default_action arp_manager broadcast" -c localhost:22222
