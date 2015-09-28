@@ -40,8 +40,8 @@ to compile the P4 program
 
 to run the program
 
-   ./run_demo.bash
+    ./run_demo.bash
 
 Once the mininet is started, you can populate the table from the mininet shell
 
-   mininet> sh ./add_demo_entries.bash
+    mininet> sh ./add_demo_entries.bash
