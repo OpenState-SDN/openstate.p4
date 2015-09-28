@@ -22,9 +22,9 @@ copy the openstate.p4 library inside the p4factory/targets folder
 
 Now we have to create 3 new targets:
 
-*mac_learning
-*portknocking
-*fwd_consistency
+* mac_learning
+* portknocking
+* fwd_consistency
 
 #Target creation
     python ~/p4factory/tools/newtarget.py {app_name}
