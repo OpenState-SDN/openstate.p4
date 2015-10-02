@@ -16,7 +16,7 @@ Now open the following terminals
 
 On the terminal h2 execute a UDP echo server on port 22 as follows
 
-    h2# python updserv.py -s 22
+    h2# python udpserv.py -s 22
 
 Now, on the terminal h1 we can try different knocking sequence
 
