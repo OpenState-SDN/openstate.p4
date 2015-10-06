@@ -69,6 +69,9 @@ table output {
 }
 
 table arp_manager {
+    reads {
+        ethernet.etherType: valid;
+    }
     actions { 
         broadcast;
     }

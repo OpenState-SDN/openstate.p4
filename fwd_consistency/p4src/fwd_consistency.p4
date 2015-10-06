@@ -107,6 +107,9 @@ action broadcast() {
 /*********** TABLES *************/
 
 table port_selection {
+    reads {
+        ethernet.etherType: valid;     
+    }
     actions{
         random;
     }
@@ -131,12 +134,18 @@ table output {
 }
 
 table reply {
+    reads {
+        ethernet.etherType: valid;     
+    }
     actions {
         forward_back;
     }
 }
 
 table arp_manager {
+    reads {
+        ethernet.etherType: valid;     
+    }
     actions { 
         broadcast;
     }

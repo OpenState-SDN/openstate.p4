@@ -9,7 +9,7 @@ header_type openstate_t {
         idle_rb: 32;                         // idle rollback
         hard_to_expiration : 32;             // it is the sum of hard_to and the timestamp of when it has been set
         idle_to_expiration : 32;             // last reference time
-        new_idle_to_expiration : 32;         // new reference time        
+        new_idle_to_expiration : 32;         // new reference time
     }
 }
 
@@ -54,7 +54,7 @@ field_list_calculation l_hash {
     input {
         lookup_hash_field;
     }
-    algorithm : crc32;
+    algorithm : crc16;
     output_width : STATE_MAP_SIZE;
 }
 
@@ -62,7 +62,7 @@ field_list_calculation u_hash {
     input {
         update_hash_field;
     }
-    algorithm : crc32;
+    algorithm : crc16;
     output_width : STATE_MAP_SIZE;
 }
 
@@ -139,24 +139,36 @@ action set_idle_rb_state(){
 }
 
 table state_lookup {
+    reads {
+        ethernet.etherType : valid;
+    }
     actions { 
         lookup_state_table; 
     }
 }
 
 table hard_to_expired {
+    reads {
+        ethernet.etherType : valid;
+    }
     actions {
         set_hard_rb_state; 
     }
 }
 
 table idle_to_expired {
+    reads {
+        ethernet.etherType : valid;
+    }
     actions {
         set_idle_rb_state; 
     }
 }
 
 table state_update {
+    reads {
+        ethernet.etherType : valid;
+    }
     actions {
         update_state_table;
     }

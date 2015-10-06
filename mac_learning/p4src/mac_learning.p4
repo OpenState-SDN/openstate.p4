@@ -44,6 +44,9 @@ table update_state {
 }
 
 table arp_manager {
+    reads {
+        openstate.state : exact;
+    }
     actions { 
         broadcast;
     }
