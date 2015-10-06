@@ -31,7 +31,7 @@ action _nop(){
 
 action _reset() {
     //all the registers are reset to 0
-    modify_field_with_hash_based_offset(openstate.update_state_index, 0, u_hash, STATE_MAP_SIZE);
+    modify_field_with_hash_based_offset(openstate.update_state_index, 0, u_hash, STATE_TABLE_SIZE);
     register_write(reg_state, openstate.update_state_index, openstate.state);
     register_write(reg_hard_to_expiration, openstate.update_state_index, 0);
     register_write(reg_hard_rb, openstate.update_state_index, 0);

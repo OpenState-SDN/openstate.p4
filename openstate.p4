@@ -54,16 +54,16 @@ field_list_calculation l_hash {
     input {
         lookup_hash_field;
     }
-    algorithm : crc16;
-    output_width : STATE_MAP_SIZE;
+    algorithm : crc32;
+    output_width : 32;
 }
 
 field_list_calculation u_hash {
     input {
         update_hash_field;
     }
-    algorithm : crc16;
-    output_width : STATE_MAP_SIZE;
+    algorithm : crc32;
+    output_width : 32;
 }
 
 action lookup_state_table() {
