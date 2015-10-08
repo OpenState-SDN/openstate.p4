@@ -25,20 +25,17 @@ Do not forget to build the code once all the dependencies have been installed:
 #P4 OpenState applications download
 
 Clone the P4 OpenState repository:
-    
+
     cd ~
     git clone https://github.com/OpenState-SDN/openstate.p4
-
-Copy the openstate.p4 library inside the p4factory/targets folder:
-
-    cp ~/openstate.p4/openstate.p4 ~/p4factory/targets/
 
 Now you can test the following OpenState-based applications:
 
 * mac_learning
 * portknocking
-* fwd_consistency
 
 To run an application:
 
     ~/openstate.p4/{app_name}/run_demo.sh
+    
+Each application's folder has its own README file.
