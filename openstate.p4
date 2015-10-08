@@ -139,36 +139,24 @@ action set_idle_rb_state(){
 }
 
 table state_lookup {
-    reads {
-        ethernet.etherType : valid;
-    }
     actions { 
         lookup_state_table; 
     }
 }
 
 table hard_to_expired {
-    reads {
-        ethernet.etherType : valid;
-    }
     actions {
         set_hard_rb_state; 
     }
 }
 
 table idle_to_expired {
-    reads {
-        ethernet.etherType : valid;
-    }
     actions {
         set_idle_rb_state; 
     }
 }
 
 table state_update {
-    reads {
-        ethernet.etherType : valid;
-    }
     actions {
         update_state_table;
     }
