@@ -19,7 +19,7 @@ action forward(port) {
 }
 
 action broadcast() {
-    modify_field(intrinsic_metadata.mcast_grp, 1);
+    modify_field(intrinsic_metadata.mcast_grp, standard_metadata.ingress_port);
 }
 
 action _drop() {
@@ -69,9 +69,6 @@ table output {
 }
 
 table arp_manager {
-    reads {
-        ethernet.etherType: valid;
-    }
     actions { 
         broadcast;
     }

@@ -6,6 +6,7 @@
 #define STATE_TABLE_SIZE 8192
 #include "../../openstate.p4"
 
+
 field_list lookup_hash_field {
     ethernet.dstAddr;
 }
@@ -19,7 +20,7 @@ action unicast() {
 }
 
 action broadcast() {
-    modify_field(intrinsic_metadata.mcast_grp, 1);
+    modify_field(intrinsic_metadata.mcast_grp, standard_metadata.ingress_port);
 }
 
 /*********** TABLES *************/
@@ -44,9 +45,6 @@ table update_state {
 }
 
 table arp_manager {
-    reads {
-        openstate.state : exact;
-    }
     actions { 
         broadcast;
     }

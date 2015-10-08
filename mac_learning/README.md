@@ -6,10 +6,6 @@ To start the application write in the command line
 
     ./run_demo.bash
 
-Once the mininet is started, you can populate the table from the mininet shell
-
-    mininet> sh ./add*
-
 Now open the following terminals
 
     mininet> xterm h1 h1 h2 h2 h3
@@ -28,7 +24,7 @@ Perform the same for host 1
 
 Execute Netcat in client mode on host 1 and write something
 
-    h1# nc -u 10.0.1.1 80
+    h1# nc -u 10.0.0.2 80
 
 Since we are using UDP, we do not have any reply from h2 to h1, thus the learning of the h2 position is not perform and the packets will be always broadcasted. (see tcpdump in h3)
 

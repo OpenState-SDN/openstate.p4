@@ -2,41 +2,22 @@
 
 Guide to test the P4 OpenState applications
 
-#SSH key pair generation
-
-Some P4 submodules require you have a SSH key pair attached to your GitHub account.
-
-Open a shell in your Mininet VM.
-
-Generate a new SSH key:
-
-    ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-
-Start the ssh-agent in the background:
-
-    eval "$(ssh-agent -s)"
-
-Add your SSH key to the ssh-agent:
-
-    ssh-add ~/.ssh/id_rsa
-
-Copy your public key in the clipboard:
-
-    cat ~/.ssh/id_rsa.pub
-
-Go to https://github.com/settings/ssh
-
-Click on [Add SSH key], choose a title and paste your public key. Finally click on [Add key].
-
 #P4 download
 
-Get the last version of p4factory:
+You will need to clone 2 p4lang Github repositories and install their dependencies. To clone the repositories:
 
     cd ~
-    git clone https://github.com/p4lang/p4factory.git
+    git clone https://github.com/p4lang/behavioral-model.git bmv2
+    git clone https://github.com/p4lang/p4c-bm.git p4c-bmv2
 
-    cd p4factory
-    git submodule update --init --recursive
+Each of these repositories come with dependencies.
+
+    sudo pip install -r ~/p4c-bmv2/requirements.txt
+    ~/bmv2/install_deps.sh
+    
+Do not forget to build the code once all the dependencies have been installed:
+
+    cd ~/bmv2
     ./install_deps.sh
     ./autogen.sh
     ./configure
@@ -52,31 +33,12 @@ Copy the openstate.p4 library inside the p4factory/targets folder:
 
     cp ~/openstate.p4/openstate.p4 ~/p4factory/targets/
 
-Now you can compile and test the following OpenState-based applications:
+Now you can test the following OpenState-based applications:
 
 * mac_learning
 * portknocking
 * fwd_consistency
 
-#Target creation
+To run an application:
 
-Create a P4 target:
-
-    python ~/p4factory/tools/newtarget.py {app_name}
-
-Copy from the {app_name} folder the entire contents and paste them into:
-
-    cp -r ~/openstate.p4/{app_name}/* ~/p4factory/targets/{app_name}
-
-Compile the P4 program:
-
-    cd ~/p4factory/targets/{app_name}
-    make
-
-Run the program:
-
-    ./run_demo.bash
-
-Once Mininet is started, you can populate the flow tables using the Mininet shell:
-
-    mininet> sh ./add_demo_entries.bash
+    ~/openstate.p4/{app_name}/run_demo.sh
