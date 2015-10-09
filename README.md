@@ -18,9 +18,9 @@ Each of these repositories come with dependencies.
 Do not forget to build the code once all the dependencies have been installed:
 
     cd ~/bmv2
-    ./install_deps.sh
     ./autogen.sh
     ./configure
+    make
 
 #P4 OpenState applications download
 
@@ -36,6 +36,7 @@ Now you can test the following OpenState-based applications:
 
 To run an application:
 
-    ~/openstate.p4/{app_name}/run_demo.sh
+    cd ~/openstate.p4/{app_name}
+    ./run_demo.sh
     
 Each application's folder has its own README file.
