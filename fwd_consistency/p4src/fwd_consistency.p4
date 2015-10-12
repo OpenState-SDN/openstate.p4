@@ -48,9 +48,7 @@ field_list_calculation port_select {
 action random(){
     //the modify_field_with_hash_based_offset works in this way (base + (hash_value % size))
     //since we want to choose a port between 2 and 4 we use: (2 + (hash_value % 3))
-    //modify_field_with_hash_based_offset(openstate.state, 2, port_select, 3);
-    modify_field_with_hash_based_offset(openstate.state, 0, port_select, 3);
-    add_to_field(openstate.state,2);
+    modify_field_with_hash_based_offset(openstate.state, 2, port_select, 3);
 }
 
 
