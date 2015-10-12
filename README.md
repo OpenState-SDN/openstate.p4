@@ -33,6 +33,7 @@ Now you can test the following OpenState-based applications:
 
 * mac_learning
 * portknocking
+* fwd_consistency
 
 To run an application:
 

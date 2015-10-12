@@ -1,0 +1,32 @@
+mc_mgrp_create 1
+mc_mgrp_create 2
+mc_mgrp_create 3
+mc_mgrp_create 4
+mc_node_create 0 1
+mc_node_create 1 2
+mc_node_create 2 3
+mc_node_create 3 4
+mc_node_associate 1 1
+mc_node_associate 1 2
+mc_node_associate 1 3
+mc_node_associate 2 0
+mc_node_associate 2 2
+mc_node_associate 2 3
+mc_node_associate 3 0
+mc_node_associate 3 1
+mc_node_associate 3 3
+mc_node_associate 4 0
+mc_node_associate 4 1
+mc_node_associate 4 2
+table_set_default state_lookup lookup_state_table
+table_set_default hard_to_expired set_hard_rb_state
+table_set_default idle_to_expired set_idle_rb_state
+table_set_default port_selection random
+table_set_default arp_manager broadcast
+table_add update_state update_state_table 2 => 2 0 0 5000000 0
+table_add update_state update_state_table 3 => 3 0 0 5000000 0
+table_add update_state update_state_table 4 => 4 0 0 5000000 0
+table_add output forward 2 => 00:00:00:00:00:02 10.0.0.2 200
+table_add output forward 3 => 00:00:00:00:00:03 10.0.0.3 300
+table_add output forward 4 => 00:00:00:00:00:04 10.0.0.4 400
+table_add reply forward_back => 00:00:00:00:00:02 10.0.0.2 80
