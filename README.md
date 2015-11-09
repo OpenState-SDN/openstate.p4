@@ -12,8 +12,10 @@ You will need to clone 2 p4lang Github repositories and install their dependenci
 
 Each of these repositories come with dependencies.
 
-    sudo pip install -r ~/p4c-bmv2/requirements.txt
-    ~/bmv2/install_deps.sh
+    cd ~/p4c-bmv2
+    sudo pip install -r requirements.txt
+    cd ~/bmv2
+    ./install_deps.sh
     
 Do not forget to build the code once all the dependencies have been installed:
 
