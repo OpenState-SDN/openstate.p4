@@ -37,4 +37,3 @@ sudo PYTHONPATH=$PYTHONPATH:$BMV2_PATH/mininet/ python topo.py \
     --cli $CLI_PATH
 
 echo "READY!!!"
-fg
