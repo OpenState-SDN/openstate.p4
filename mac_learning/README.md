@@ -1,8 +1,8 @@
 # mac_learning.p4
 
-Guide to test the mac learning application
+Guide to test the Mac Learning application
 
-To start the application write in the command line
+To start the application run the following command:
 
     ./run_demo.bash
 
@@ -12,26 +12,28 @@ Now open the following terminals
 
 On the terminal h3 execute tcpdump as follows
 
-    h3# tcpdump -i eth0 arp or dst port 80
+    h3# tcpdump -n -i eth0 arp or dst port 80
 
-On the terminal h2 execute Netcat in listening mode over port UDP 80 
+On the terminal h2 execute Netcat in listening mode on UDP port 80 
 
     h2# nc -luv 80
 
-Perform the same for host 1
+Do the same for host h1
 
     h1# nc -luv 80
 
-Execute Netcat in client mode on host 1 and write something
+Execute a Netcat client on host h1, write something and press ENTER:
 
     h1# nc -u 10.0.0.2 80
 
-Since we are using UDP, we do not have any reply from h2 to h1, thus the learning of the h2 position is not perform and the packets will be always broadcasted. (see tcpdump in h3)
+The switch learns the position of h1 but, since we are using UDP and we do not have any reply from h2 to h1, the position of h2 is not learned and the packets from h1 to h2 will be always broadcasted. (see tcpdump output in h3).
 
-If within 10 seconds h2 talks to h1, h3 will do not receive any message anymore.
-h3 will see messages again after the timeout expiration (hard_to 10 sec)
+The association host-port lasts 10 seconds: if within 10 seconds h2 communicates to h1, no packets will be received by h3. h3 will see messages again after the timeout expiration (hard_to is set 10 sec).
 
-You can try it by executing Netcat in client mode on host 2 and write something
+Try it by executing Netcat in client mode on host h2
 
     h2# nc -u 10.0.0.1 80
+    
+Wait more than 10 seconds and repeat
 
+    h2# nc -u 10.0.0.1 80
