@@ -21,4 +21,11 @@ Now, on the terminal h1 we can execute netcat in client mode
     h1# nc 10.0.0.2 80
 
 The connection will be set up randomly with one of the 3 servers.
-To test the timeouts functionality, a 5 sec idle timeout has been set. If the user does not talk for 5 sec the connection is lost
+
+To test the timeouts functionality, a 5 sec idle timeout has been set. If the user does not send messages for 5 sec the connection is lost.
+
+Once the connection has been closed by the user or the timeout has expired, a new connection might be set up to a different server.
+
+    h1# nc 10.0.0.2 80
+
+
