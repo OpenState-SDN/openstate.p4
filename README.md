@@ -1,11 +1,12 @@
 # openstate.p4
 
-How to test the P4 OpenState applications
+How to test the P4 OpenState applications?
 
-#P4 download
+##P4 download
 
 Download a clean Mininet 2.2.1 VM on Ubuntu 14.04 at [this link](https://github.com/mininet/mininet/wiki/Mininet-VM-Images).
-You need to clone two p4lang Github repositories and install their dependencies.
+
+You need to clone two p4lang Github repositories:
 
     cd ~
     git clone https://github.com/p4lang/behavioral-model.git bmv2
@@ -26,11 +27,12 @@ Do not forget to build the code once all the dependencies have been installed:
     ./configure
     make
 
-Install the following Python packages:
+Finally install the following Python packages:
 
+    sudo apt-get update && sudo apt-get install python-pip
     sudo pip install scapy thrift networkx
 
-#P4 OpenState applications download
+##P4 OpenState applications download
 
 Clone the P4 OpenState repository:
 
