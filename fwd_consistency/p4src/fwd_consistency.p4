@@ -147,7 +147,7 @@ control ingress {
             if ((openstate.hard_to > 0 and openstate.idle_to == 0) or (openstate.hard_to > 0 and openstate.idle_to > 0 and openstate.hard_to_expiration < openstate.idle_to_expiration))
             {    
                 //check if the current packet timestamp is greater than the timeout expiration time
-                if(intrinsic_metadata.ingress_global_timestamp > openstate.hard_to_expiration)
+                if(intrinsic_metadata.ingress_global_timestamp >= openstate.hard_to_expiration)
                 {      
                     apply(hard_to_expired);              
                 }
