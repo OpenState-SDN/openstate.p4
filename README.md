@@ -12,6 +12,11 @@ You need to clone two p4lang Github repositories:
     git clone https://github.com/p4lang/behavioral-model.git bmv2
     git clone https://github.com/p4lang/p4c-bm.git p4c-bmv2
 
+Install the following Python packages:
+
+    sudo apt-get update && sudo apt-get install python-pip
+    sudo pip install scapy thrift networkx
+
 Each of these repositories comes with dependencies:
 
     cd ~/p4c-bmv2
@@ -26,11 +31,6 @@ Do not forget to build the code once all the dependencies have been installed:
     ./autogen.sh
     ./configure
     make
-
-Finally install the following Python packages:
-
-    sudo apt-get update && sudo apt-get install python-pip
-    sudo pip install scapy thrift networkx
 
 ##P4 OpenState applications download
 
