@@ -1,0 +1,4 @@
+ip link add link eth0 name eth0.16 type vlan id 16
+ip addr add 192.168.100.2/24 brd 192.168.100.255 dev eth0.16
+ip link set dev eth0.16 up
+arp -s 192.168.100.1 00:00:00:00:00:01

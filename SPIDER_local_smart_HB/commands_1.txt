@@ -1,0 +1,35 @@
+mc_mgrp_create 1
+mc_mgrp_create 2
+mc_mgrp_create 3
+mc_node_create 0 1
+mc_node_create 1 2
+mc_node_create 2 3
+mc_node_associate 1 1
+mc_node_associate 1 2
+mc_node_associate 2 0
+mc_node_associate 2 2
+mc_node_associate 3 0
+mc_node_associate 3 1
+table_set_default arp_manager broadcast
+table_set_default inport_write_metadata write_metadata_inport
+# hard_to_6 HB_req_generation_TO
+table_set_default update_inport_state update_state_table 4 0 0 50000 0
+table_set_default output_write_metadata _nop
+table_set_default state_lookup lookup_state_table
+table_set_default hard_to_expired set_hard_rb_state
+table_set_default idle_to_expired set_idle_rb_state
+table_set_default update_outport_state _nop
+table_set_default forward _nop
+table_set_default clone_table_egress _nop
+table_add output_write_metadata write_metadata_outport 192.168.100.1 192.168.100.2 => 2
+table_add forward HB_req 0&&&4294967295 1 16 => 10
+# hard_to_7 HB_reply_TO
+table_add update_outport_state update_state_table 0 1 20 => 1 0 0 50000 2 
+table_add forward unicast 1&&&4294967295 1 16 => 2 10
+table_add forward backup_and_probe 2&&&4294967295 1 16 => 10
+# hard_to_5 probe_generation_TO
+table_add update_outport_state update_state_table 2 1 17 => 3 0 0 5000000 2 
+table_add forward backup 3&&&4294967295 1 16 => 10
+table_add forward unicast 4&&&4294967295 1 16 => 2 10
+table_add forward unicast 0&&&0 2 16 => 1 10
+table_add clone_table_egress send_probe 1 => 
