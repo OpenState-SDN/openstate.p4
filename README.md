@@ -44,6 +44,7 @@ Now you can test the following OpenState-based applications:
 * mac_learning
 * portknocking
 * fwd_consistency
+* SPIDER: Fault Resilient SDN Pipeline with Recovery Delay Guarantees
 
 To run an application:
 
