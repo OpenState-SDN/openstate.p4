@@ -138,33 +138,33 @@ action set_idle_rb_state(){
     register_write(reg_idle_rb, openstate.update_state_index, 0);
 }
 
-action _nop() {   
+action __nop() {   
 }
 
 table state_lookup {
     actions { 
         lookup_state_table; 
-        _nop;
+        __nop;
     }
 }
 
 table hard_to_expired {
     actions {
         set_hard_rb_state; 
-        _nop;
+        __nop;
     }
 }
 
 table idle_to_expired {
     actions {
         set_idle_rb_state; 
-        _nop;
+        __nop;
     }
 }
 
 table state_update {
     actions {
         update_state_table; 
-        _nop;
+        __nop;
     }
 }
