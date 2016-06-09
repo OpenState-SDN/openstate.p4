@@ -1,6 +1,7 @@
 '''
 This script allows to display an image according to a register value.
 You need to get the correct index by using dump_reg.py script with DUMP_ALL = True.
+after setting down the link!
 COnfigure the found index in REG_INDEX variable.
 
 Based on Tkinter image slideshow (vegaseat daniweb.com)

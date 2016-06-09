@@ -1,6 +1,7 @@
 '''
 This script allows to display an image according to a register value.
-You need to get the correct index by using dump_reg_red.py script with DUMP_ALL = True.
+You need to get the correct index by using dump_reg_red.py script with DUMP_ALL = True
+after setting down the link!
 COnfigure the found index in REG_INDEX variable.
 
 Based on Tkinter image slideshow (vegaseat daniweb.com)
@@ -11,7 +12,7 @@ SWITCH_ID = 1
 REG_NAME = 'reg_state_red'
 JSON = 'SPIDER_remote.json'
 
-REG_INDEX = 5795 # Configure!!!
+REG_INDEX = 2000 # Configure!!!
 
 import subprocess
 

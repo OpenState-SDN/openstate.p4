@@ -11,7 +11,7 @@ SWITCH_ID = 2
 REG_NAME = 'reg_state_det'
 JSON = 'SPIDER_remote.json'
 
-REG_INDEX = 6129 # Configure!!!
+REG_INDEX = 958 # Configure!!!
 
 import subprocess
 
