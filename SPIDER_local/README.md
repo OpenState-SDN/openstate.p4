@@ -3,7 +3,7 @@ The scope of this application is to demonstrate how it is possible to create a d
 
 A specific switch is in charge to drive packets towards a backup path in case of failure, without relying on the controller.
 
-![topology](https://bitbucket.org/openstate-sdn/p4-openstate/raw/master/SPIDER_local/images/local.png)
+![topology](https://github.com/OpenState-SDN/openstate.p4/blob/master/SPIDER_local/images/local.png)
 
 In the image is depicted the topology in use. It consists of 4 switches and 2 hosts. In normal conditions, the traffic from H1 to H2 is forwarded in the below path and the replies from H2 to H1 pass through the above switch.
 
