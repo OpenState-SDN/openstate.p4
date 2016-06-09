@@ -2,7 +2,7 @@
 The scope of this application is to demonstrate how it is possible to create a detection mechanism in P4 by exploiting the stateful abstraction provided by OpenState. 
 A specific switch is in charge to drive packets towards a backup path in case of failure, without relying on the controller.
 
-![Topology](https://bitbucket.org/openstate-sdn/p4-openstate/raw/master/SPIDER_remote/images/remote.png)
+![Topology](https://github.com/OpenState-SDN/openstate.p4/blob/master/SPIDER_remote/images/remote.png)
 
 In the image is depicted the topology in use. It consists of 4 switches and 2 hosts. In normal conditions, the traffic from H1 to H2 is forwarded in the below path and the replies from H2 to H1 pass through the above switch.
 If a failure is detected, both requests and replies are forwarded on the above path, called backup path.
