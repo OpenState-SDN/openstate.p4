@@ -19,15 +19,12 @@ mc_node_associate 4 0
 mc_node_associate 4 1
 mc_node_associate 4 2
 table_set_default state_lookup lookup_state_table
-table_set_default hard_to_expired set_hard_rb_state
-table_set_default idle_to_expired set_idle_rb_state
-table_set_default forward broadcast
-table_add forward unicast 1 =>
-table_add forward unicast 2 =>
-table_add forward unicast 3 =>
-table_add forward unicast 4 =>
-table_add update_state update_state_table 1 => 1 0 0 10000000 0
-table_add update_state update_state_table 2 => 2 0 0 10000000 0
-table_add update_state update_state_table 3 => 3 0 0 10000000 0
-table_add update_state update_state_table 4 => 4 0 0 10000000 0
+table_set_default pre_state_update preupdate_state_table
+table_set_default forward unicast
+table_add forward broadcast_and_learn 0 =>
+table_set_default load_state1 load_state1_in_state
+table_set_default load_state2 load_state2_in_state
+table_set_default write_state1 write_state_in_state1
+table_set_default write_state2 write_state_in_state2
+table_set_default handle_collision do_something_for_the_collision
 table_set_default arp_manager broadcast
