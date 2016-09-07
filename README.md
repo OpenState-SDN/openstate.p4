@@ -4,7 +4,7 @@ How to test the P4 OpenState applications?
 
 ##P4 download
 
-Download a clean Mininet 2.2.1 VM on Ubuntu 14.04 at [this link](https://github.com/mininet/mininet/wiki/Mininet-VM-Images).
+Download a clean Mininet 2.2.1 VM on Ubuntu 14.04 (64 bit) at [this link](https://github.com/mininet/mininet/wiki/Mininet-VM-Images).
 
 You need to clone two p4lang Github repositories:
 
